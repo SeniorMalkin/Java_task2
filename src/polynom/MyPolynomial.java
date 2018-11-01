@@ -1,5 +1,4 @@
 package polynom;
-
 import java.util.Arrays;
 
 public class MyPolynomial {
@@ -83,6 +82,19 @@ public class MyPolynomial {
         }
         MyPolynomial result = new MyPolynomial(arr);
         return result;
+    }
+
+    @Override
+    public  boolean equals(Object obj){
+        if(this ==  obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+        MyPolynomial poly =  (MyPolynomial)obj;
+        return coeffs.equals(poly.coeffs);
+    }
+    @Override
+    public int hashCode(){
+        return coeffs.hashCode();
     }
 
 }

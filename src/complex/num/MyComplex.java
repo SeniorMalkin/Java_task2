@@ -3,6 +3,7 @@ package complex.num;
 import static java.lang.Math.*;
 
 public class MyComplex {
+
     private double real = 0.0;
     private double imag = 0.0;
 
@@ -123,5 +124,26 @@ public class MyComplex {
         result.setReal(this.real);
         return result;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this ==  obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+        MyComplex number = (MyComplex)obj;
+        return real == number.real && imag == number.imag;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 0;
+        long f = Double.doubleToLongBits(real);
+        result += (int)(f^(f >>> 32));
+         f = Double.doubleToLongBits(imag);
+        result += (int)(f^(f >>> 32));
+        return result;
+
+    }
+
 
 }

@@ -75,4 +75,23 @@ public class Ball {
     public String toString() {
         return "Ball[(" + x + "," + y + "),speed=(" + xDelta + "," + yDelta + ")]";
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+        Ball ball = (Ball) obj;
+        return x == ball.x &&  y == ball.y && radius == ball.radius && xDelta == ball.xDelta && yDelta == ball.yDelta;
+    }
+
+    @Override
+    public int hashCode(){
+        int result  = Float.floatToIntBits(x);
+        result += Float.floatToIntBits(y);
+        result += radius;
+        result += Float.floatToIntBits(xDelta);
+        result += Float.floatToIntBits(yDelta);
+        return result;
+    }
 }

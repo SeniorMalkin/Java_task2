@@ -18,7 +18,7 @@ public class Container {
     }
 
     public int getY() {
-        return x2;
+        return y1;
     }
 
     public int getWidth() {
@@ -42,5 +42,23 @@ public class Container {
     @Override
     public String toString() {
         return "Container[(" + x1 + "," + y1 + "),(" + x2 + "," + y2 + ")]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if( this == obj) return true;
+        if( obj == null) return false;
+        if( getClass() != obj.getClass()) return false;
+        Container ball = (Container) obj;
+        return x1 == ball.x1 && x2 == ball.x2 && y1 == ball.y1 && y2 == ball.y2;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = x1;
+        result += x2;
+        result += y1;
+        result += y2;
+        return result;
     }
 }
