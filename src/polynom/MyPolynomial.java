@@ -90,7 +90,12 @@ public class MyPolynomial {
         if(obj == null) return false;
         if(getClass() != obj.getClass()) return false;
         MyPolynomial poly =  (MyPolynomial)obj;
-        return coeffs.equals(poly.coeffs);
+        for(int i=0; i< coeffs.length ; i++){
+            if(coeffs[i] != poly.coeffs[i]){
+                return false;
+            }
+        }
+        return true;
     }
     @Override
     public int hashCode(){
